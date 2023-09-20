@@ -12,7 +12,6 @@ public class CountingSort {
     }
 
     public static Integer[] sort(Integer[] nonSortedList) {
-        //Copy to new array for better readability. In prod it's better to keep one array
         //TODO: Think how could be possible to optimize memory (maybe binary tree can help us or other structure,
         // but will it be optimal by time?)
         Integer min = Arrays.stream(nonSortedList)
