@@ -1,18 +1,12 @@
 package org.example.sorting;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import static org.example.sorting.exception.ArrayContainsNullValuesException.checkArrayForNullValues;
 
 public class BubbleSort {
 
-    //TODO: Make tests instead of main() method
-    public static void main(String[] args) {
-        Integer[] nonSortedList = {5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5};
-        System.out.println(Arrays.deepToString(sort(nonSortedList)));
-    }
-
     public static Integer[] sort(Integer[] nonSortedList) {
+        checkArrayForNullValues(nonSortedList);
+
         //Copy to new array for better readability. In prod it's better to keep one array
         Integer[] sortedList = nonSortedList.clone();
         int bufferedValue;
