@@ -1,6 +1,6 @@
 package org.example.sorting;
 
-import org.example.sorting.exception.ArrayContainsNullValuesException;
+import org.example.sorting.exception.CollectionContainsNullValuesException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,13 +26,13 @@ class CountingSortTest {
     @Test
     void nullArray() {
         Integer[] arrProvided = null;
-        assertThrows(ArrayContainsNullValuesException.class, () -> CountingSort.sort(arrProvided));
+        assertThrows(CollectionContainsNullValuesException.class, () -> CountingSort.sort(arrProvided));
     }
 
     @Test
     void nullValueArray() {
         Integer[] arrProvided = {null};
-        assertThrows(ArrayContainsNullValuesException.class, () -> CountingSort.sort(arrProvided));
+        assertThrows(CollectionContainsNullValuesException.class, () -> CountingSort.sort(arrProvided));
     }
     
 }

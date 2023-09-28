@@ -1,23 +1,41 @@
 package org.example.sorting;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+
+import static org.example.sorting.exception.CollectionContainsNullValuesException.checkListOfIntegerForNullValues;
 
 public class QuickSort {
 
-    //TODO: Make tests instead of main() method
-    public static void main(String[] args) {
-        Integer[] nonSortedList = {5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5};
-        System.out.println(sort(Arrays.asList(nonSortedList)));
+    public static List<Integer> sort(List<Integer> nonSortedList) {
+        Random random = new Random();
+        return sort(nonSortedList, random);
     }
 
-    public static List<Integer> sort(List<Integer> nonSortedList) {
+    private static List<Integer> sort(List<Integer> nonSortedList, Random random) {
+        checkListOfIntegerForNullValues(nonSortedList);
+
         if (nonSortedList.size() < 2) {
             return nonSortedList;
         }
 
-        Integer middleValue = nonSortedList.get(nonSortedList.size() / 2 - 1);
+        //Check for sublist containing only one value (ex. [1, 1, 1]).
+        //TODO: This is mostly looks like a hack, think how to optimize it.
+        Integer firstValue = nonSortedList.get(0);
+        boolean areAllElementsEqual = true;
+        for (Integer value : nonSortedList) {
+            if (!value.equals(firstValue)) {
+                areAllElementsEqual = false;
+                break;
+            }
+        }
+        if (areAllElementsEqual) {
+            return nonSortedList;
+        }
+
+        int randomValue = random.nextInt(nonSortedList.size());
+        Integer middleValue = nonSortedList.get(randomValue);
 
         List<Integer> moreOrEqualThanMidList = new ArrayList<>();
         List<Integer> lessThanMidList = new ArrayList<>();

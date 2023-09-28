@@ -3,7 +3,7 @@ package org.example.sorting;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import static org.example.sorting.exception.ArrayContainsNullValuesException.checkArrayForNullValues;
+import static org.example.sorting.exception.CollectionContainsNullValuesException.checkArrayForNullValues;
 
 public class CountingSort {
 
