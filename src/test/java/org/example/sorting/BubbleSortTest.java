@@ -1,7 +1,7 @@
 package org.example.sorting;
 
 
-import org.example.sorting.exception.ArrayContainsNullValuesException;
+import org.example.sorting.exception.CollectionContainsNullValuesException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -28,13 +28,13 @@ class BubbleSortTest {
     @Test
     void nullArray() {
         Integer[] arrProvided = null;
-        assertThrows(ArrayContainsNullValuesException.class, () -> BubbleSort.sort(arrProvided));
+        assertThrows(CollectionContainsNullValuesException.class, () -> BubbleSort.sort(arrProvided));
     }
 
     @Test
     void nullValueArray() {
         Integer[] arrProvided = {null};
-        assertThrows(ArrayContainsNullValuesException.class, () -> BubbleSort.sort(arrProvided));
+        assertThrows(CollectionContainsNullValuesException.class, () -> BubbleSort.sort(arrProvided));
     }
 
 }

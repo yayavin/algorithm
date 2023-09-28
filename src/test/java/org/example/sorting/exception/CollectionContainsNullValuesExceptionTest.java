@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayContainsNullValuesExceptionTest {
+class CollectionContainsNullValuesExceptionTest {
 
     private static final String messageForNullValue = "Provided array contains null value.";
     private static final String messageForNullReferenceArray = "Array references to null.";
@@ -12,15 +12,15 @@ class ArrayContainsNullValuesExceptionTest {
     @Test
     void happyPath() {
         Object[] arr = {new Object()};
-        assertDoesNotThrow(() -> ArrayContainsNullValuesException.checkArrayForNullValues(arr));
+        assertDoesNotThrow(() -> CollectionContainsNullValuesException.checkArrayForNullValues(arr));
     }
 
     @Test
     void nullArray() {
         Object[] arr = null;
-        ArrayContainsNullValuesException e = assertThrows(
-                ArrayContainsNullValuesException.class,
-                () -> ArrayContainsNullValuesException.checkArrayForNullValues(arr)
+        CollectionContainsNullValuesException e = assertThrows(
+                CollectionContainsNullValuesException.class,
+                () -> CollectionContainsNullValuesException.checkArrayForNullValues(arr)
         );
         assertEquals(messageForNullReferenceArray, e.getMessage());
     }
@@ -28,9 +28,9 @@ class ArrayContainsNullValuesExceptionTest {
     @Test
     void nullValueArray() {
         Object[] arr = {null};
-        ArrayContainsNullValuesException e = assertThrows(
-                ArrayContainsNullValuesException.class,
-                () -> ArrayContainsNullValuesException.checkArrayForNullValues(arr)
+        CollectionContainsNullValuesException e = assertThrows(
+                CollectionContainsNullValuesException.class,
+                () -> CollectionContainsNullValuesException.checkArrayForNullValues(arr)
         );
         assertEquals(messageForNullValue, e.getMessage());
     }

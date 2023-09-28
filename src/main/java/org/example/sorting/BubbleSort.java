@@ -1,6 +1,6 @@
 package org.example.sorting;
 
-import static org.example.sorting.exception.ArrayContainsNullValuesException.checkArrayForNullValues;
+import static org.example.sorting.exception.CollectionContainsNullValuesException.checkArrayForNullValues;
 
 public class BubbleSort {
 
